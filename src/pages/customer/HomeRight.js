@@ -19,6 +19,22 @@ function HomeRight(props) {
                             <a href="#">Người liên hệ</a>
                         </div>
                     </div>
+                    <div className="chat-sidebar">
+                        <div id="chatnamebox" className="chat-sidebar">ABCD</div>
+                        <div id="chatnamebox1" className="chat-sidebar">ERTY</div>
+                        <div id="chatnamebox2" className="chat-sidebar">ADSC</div>
+                        <div id="chatnamebox3" className="chat-sidebar">ADSX</div>
+                        <div id="chatnamebox4" className="chat-sidebar">ADQA</div>
+                        <div id="chatnamebox5" className="chat-sidebar">AQEC</div>
+                        <div id="chatnamebox6" class="chat-sidebar">GTDS</div>
+                        <div id="chatnameboxp1" className="chat-sidebar"><img src="prof.png" id="profpic" /></div>
+                        <div id="chatnameboxp2" className="chat-sidebar"><img src="prof.png" id="profpic" /></div>
+                        <div id="chatnameboxp3" className="chat-sidebar"><img src="prof.png" id="profpic" /></div>
+                        <div id="chatnameboxp4" className="chat-sidebar"><img src="prof.png" id="profpic" /></div>
+                        <div id="chatnameboxp5" className="chat-sidebar"><img src="prof.png" id="profpic" /></div>
+                        <div id="chatnameboxp6" className="chat-sidebar"><img src="prof.png" id="profpic" /></div>
+                        <div id="chatnameboxp7" className="chat-sidebar"><img src="prof.png" id="profpic" /></div>
+                    </div>
                 </div>
             </Wrapper>
         </div>
