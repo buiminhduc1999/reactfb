@@ -1,0 +1,63 @@
+body {
+    background: linear-gradient(to bottom right, white, #bcbdc4);
+    height: 4000px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigate {
+    position: fixed;
+    background-color: #18191a;
+    width: 325px;
+    height: 100%;
+    top: 60px;
+    left: 0;
+    z-index: 7;
+}
+
+.bodyn {
+    top: 80px;
+    left: 30px;
+    position: absolute;
+    width: 200px;
+    height: 740px;
+    font-family: Times New Roman;
+}
+
+.container {
+    display: flex;
+    flex-basis: 20px;
+    margin-left: 10px;
+    align-items: center;
+}
+
+#profilearea5 {
+    margin-top: 10px;
+}
+
+.avatar {
+    width: 15%;
+    height: 15%;
+    object-fit: contain;
+}
+
+.statustext {
+    padding-top: 15px;
+    font-size: 15px;
+    top: 15px;
+    width: 250px;
+    height: 40px;
+    background: #3a3b3c;
+    padding: 5px;
+    outline: none;
+    outline-width: 0;
+    border-radius: 20px/20px;
+    /* background-image: url(search.png); */
+    background-position: 5px;
+    background-repeat: no-repeat;
+}
