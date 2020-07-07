@@ -1,14 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 function HomeLeft(props) {
     return (
         <div>
             <div className="navigate">
                 <Wrapper>
-                    <div style={profilearea5} className="btn">
-                        <a href="#"><img src="avata.png" /><span>Đức</span></a>
-                    </div>
+                        <Link href="#">
+                    <RowItem style={profilearea5} className="btn">
+
+                            <img src="avata.png" /><span>Đức</span>
+                    </RowItem>
+
+                        </Link>
                     <div style={profilearea5} className="btn">
                         <a href="#"><img src="itemfriend.png" /> Bạn bè</a>
                     </div>
@@ -39,6 +44,12 @@ const Wrapper = styled.div`
   }
   
 `
+
+const RowItem = styled.div`
+  display: flex;
+  align-items: center;
+`
+
 const profilearea5 = {
     marginTop: '10px',
     background:'red',
