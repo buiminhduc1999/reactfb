@@ -41,6 +41,8 @@ const Wrapper = styled.div`
 `
 const profilearea5 = {
     marginTop: '10px',
+    background:'red',
+    display: 'flex'
 }
 
 

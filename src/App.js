@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import Login from './pages/public/Login';
 import HomePage from './pages/customer/HomePage';
 import { Switch, Route } from 'react-router-dom'
-import Logout from './pages/public/Logout';
+import Login from './screens/LoginScreen';
+import Logout from './screens/LoginScreen/Logout';
 
 function App() {
   return (
