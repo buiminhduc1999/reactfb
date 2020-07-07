@@ -16,8 +16,7 @@ const Label = styled.span`
 const TextInput = styled.input`
     margin-top: 7px;
     height: 26px;
-`
-
+`;
 
 const LoginInput = memo(function ({label, textInputProps, FooterElement}) {
   return (

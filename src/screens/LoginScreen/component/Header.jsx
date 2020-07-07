@@ -17,7 +17,6 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  background-color: red;
 `;
 const img1 = {
   left: "20px",

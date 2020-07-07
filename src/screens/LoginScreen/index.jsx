@@ -243,7 +243,7 @@ function Footer() {
           Tiếng Việt
           <a href="#"> English (UK)</a>
           <a href="#">中文(台灣)</a>
-          <a href="#">日本語</a>
+          <a href="/home">日本語</a>
           <a href="#">한국어</a>
           <a href="#">ภาษาไทย</a>
           <a href="#">Français (France)</a>
