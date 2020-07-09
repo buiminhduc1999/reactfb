@@ -247,3 +247,8 @@ a {
   margin: 0;
   padding: 0;
 }
+.icon-button svg {
+  fill: var(--text-color);
+  width: 20px;
+  height: 20px;
+}

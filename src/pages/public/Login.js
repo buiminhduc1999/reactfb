@@ -4,17 +4,6 @@ import styled from 'styled-components';
 import _ from 'lodash';
 import './Login.css';
 
-function HeaderImage() {
-    return (
-        <>
-            <Wrapper>
-                <div style={img1} className="header">
-                    <img src="facebook.png" />
-                </div>
-            </Wrapper>
-        </>
-    );
-}
 const passRegex = RegExp(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,10}$/
 );
@@ -93,56 +82,46 @@ class HeaderLogin extends React.Component {
         }
         return (
             <>
-                <form onSubmit={this.submitForm}>
-                    <div style={form1} className="header" >Email hoặc điện thoại
-                    <input
-                            style={headerbox}
-                            type="text"
-                            name="username"
-                            value={this.state.username}
-                            onChange={this.onChange}
-                        /><br />
+                <Flex>
+                    <div className="container-1">
+                        <div className="container-1-box"></div>
+                        <div id="img1" className="container-1-box">
+                            <img src="facebook.png" />
+                        </div>
+                        <form onSubmit={this.submitForm}>
+                            <div style={form1} className="container-1-box">Email hoặc điện thoại
+                            <input
+                                    style={headerbox}
+                                    type="text"
+                                    name="username"
+                                    value={this.state.username}
+                                    onChange={this.onChange}
+                                /><br />
+                            </div>
+                            <div style={form1} className="container-1-box">
+                                Password<br />
+                                <input
+                                    className={formErrors.password.length > 0 ? "error" : null}
+                                    style={headerbox}
+                                    type="password"
+                                    name="password"
+                                    value={this.state.password}
+                                    onChange={this.onChange}
+                                /><br />
+                                    Quên tài khoản?
+                                    {formErrors.password.length > 0 && (
+                                    <div>{formErrors.password}</div>
+                                )}
+                            </div>
+                            <div className="container-1-box">
+                                <input style={submit1} type="submit" value="Đăng nhập" onSubmit={this.submitForm} />
+                            </div>
+                        </form>
                     </div>
-                    <div style={form2} className="header">
-                        Password<br />
-                        <input
-                            className={formErrors.password.length > 0 ? "error" : null}
-                            style={headerbox}
-                            type="password"
-                            name="password"
-                            value={this.state.password}
-                            onChange={this.onChange}
-                        /><br />
-                        Quên tài khoản?
-                            {formErrors.password.length > 0 && (
-                            <div>{formErrors.password}</div>
-                        )}
-                    </div>
-
-                    <input type="submit"
-                        className="submit1"
-                        value="Đăng Nhập" />
-                </form>
+                </Flex>
             </>
         );
     }
-}
-
-
-// // main
-
-function Article() {
-    return (
-        <>
-            <Wrapper>
-                <div style={intro1} className="content"><strong>Facebook giúp bạn kết nối và chia sẻ với mọi</strong><br />
-                    <strong>người trong cuộc sống của bạn.</strong></div>
-                <div style={intro2} className="content"><strong>Đăng ký</strong></div>
-                <div style={img2} class="content" ><img src="world.png" /></div>
-                <div style={intro3} className="content">Nhanh chóng và dễ dàng.</div>
-            </Wrapper>
-        </>
-    );
 }
 
 class Section extends React.Component {
@@ -216,105 +195,70 @@ class Section extends React.Component {
         const { formErrors } = this.state;
         return (
             <>
-                <div id="form3" class="content">
-                    <div className="username">
-                        <div className="container">
-                            <input className={formErrors.firstName.length > 0 ? "error" : null}
-                                placeholder="Họ"
-                                type="text"
-                                id="namebox"
-                                name="firstName"
-                                onChange={this.handleChange}
-                                noValidate
-                            />
-                            <div id='message1'>
-                                {formErrors.firstName.length > 0 && (
-                                    <span className="errorMessage">{formErrors.firstName}</span>
-                                )}
-                            </div>
+                <Flex>
+                    <div className="container-2">
+                        <div className="container-box"></div>
+                        <div className="container-box">
+                            <div style={intro1} class=""><strong>Facebook giúp bạn kết nối và chia sẻ với mọi</strong><br />
+                                <strong>người trong cuộc sống của bạn.</strong></div>
+                            <div style={img2} class="" ><img src="world.png" /></div>
                         </div>
-                    </div>
-                    <div className="email">
-                        <div className="container">
-                            <div>
-                                <input className={formErrors.lastName.length > 0 ? "error" : null}
-                                    placeholder="Tên"
-                                    type="text" id="namebox"
-                                    name="lastName"
-                                    onChange={this.handleChange}
-                                    noValidate
+                        <div class="container-box">
+                            <div style={intro2} class=""><strong>Đăng ký</strong></div>
+                            <div style={intro3} class="">Nhanh chóng và dễ dàng.</div>
+                            <div style={form3} class="">
+                                <input
+                                    placeholder="Họ"
+                                    type="text"
+                                    style={namebox}
+                                    name="firstname"
                                 />
-                            </div>
-                            <div id='message1'>
-                                {formErrors.lastName.length > 0 && (
-                                    <span className="errorMessage">{formErrors.lastName}</span>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                    <div className="email">
-                        <div className="container">
-                            <div>
-                                <input className={formErrors.email.length > 0 ? "error" : null}
+                                <input
+                                    placeholder="Tên"
+                                    type="text"
+                                    style={namebox}
+                                    name="lastname"
+                                />
+                                <input
                                     placeholder="Số điện thoại hoặc email"
                                     type="text"
-                                    id="mailbox"
+                                    style={namebox}
                                     name="email"
-                                    onChange={this.handleChange}
-                                    noValidate
                                 />
-                            </div>
-                            <div id='message1'>
-                                {formErrors.email.length > 0 && (
-                                    <span className="errorMessage">{formErrors.email}</span>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                    <div className="password">
-                        <div className="container">
-                            <div>
-                                <input className={formErrors.password.length > 0 ? "error" : null}
+                                <input
                                     placeholder="Mật khẩu mới"
-                                    id="mailbox2"
+                                    style={namebox}
                                     type="password"
                                     name="password"
-                                    onChange={this.handleChange}
-                                    noValidate
                                 />
-                            </div>
-                            <div id='message1'>
-                                {formErrors.password.length > 0 && (
-                                    <div className="errorMessage">{formErrors.password}</div>
-                                )}
+                                <br /><br />
+                            Ngày sinh<br />
+                                <select name="day" style={selectday}>
+                                    {_.range(1, 30 + 1).map(value => <option key={value} value={value}>{value}</option>)}
+                                </select>
+                                <select name="month" style={selectmonth}>
+                                    {_.range(1, 12 + 1).map(value => <option key={value} value={value}>{'Thang ' + value}</option>)}
+                                </select>
+                                <select name="year" style={selectday}>
+                                    {_.range(1970, 2020 + 1).map(value => <option key={value} value={value}>{value}</option>)}
+                                </select>
+                                <br />
+                                <br />
+                    Giới tính<br />
+                                <input type="radio" name="sex" value="male" /> Nam  <input type="radio" name="sex" value="female" /> Nữ <input type="radio" name="sex" value="female" /> Tùy Chỉnh<br /><br />
+                                <div style={form4}>
+                                    Bằng cách nhấp vào Đăng ký, bạn đồng ý với Điều khoản, Chính sách dữ liệu và Chính sách cookie của chúng tôi. Bạn có thể nhận được thông báo của chúng tôi qua SMS và hủy nhận bất kỳ lúc nào.
+                                </div>
+                                <div>
+                                    <input type="submit" id="button2" value="Đăng Ký" />
+                                </div>
+                                <div style={form5} >
+                                    Tạo Trang dành cho người nổi tiếng, nhãn hiệu hoặc doanh nghiệp.
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <br /><br />
-                      Ngày sinh<br />
-                    <select name="day" id="selectday">
-                        {_.range(1, 30 + 1).map(value => <option key={value} value={value}>{value}</option>)}
-                    </select>
-                    <select name="month" id="selectmonth">
-                        {_.range(1, 12 + 1).map(value => <option key={value} value={value}>{'Thang ' + value}</option>)}
-                    </select>
-                    <select name="year" id="selectday">
-                        {_.range(1970, 2020 + 1).map(value => <option key={value} value={value}>{value}</option>)}
-                    </select>
-                    <br />
-                    <br />
-                      Giới tính<br />
-                    <input type="radio" name="sex" value="male" /> Nam  <input type="radio" name="sex" value="female" /> Nữ <input type="radio" name="sex" value="female" /> Tùy Chỉnh<br /><br />
-                    <div id="form4">
-                        Bằng cách nhấp vào Đăng ký, bạn đồng ý với <a href="#">Điều khoản</a>, <a href="#">Chính sách dữ liệu</a> và <a href="#">Chính sách cookie của chúng tôi</a>. Bạn có thể nhận được thông báo của chúng tôi qua SMS và hủy nhận bất kỳ lúc nào.
-                      </div>
-                    <br /><br />
-                    <br />
-                    <div id="form5">
-                        <a href="#">Tạo Trang</a> dành cho người nổi tiếng, nhãn hiệu hoặc doanh nghiệp.
-                      </div>
-                </div>
-                <input type="submit" id="button2" value="Đăng Ký" ></input>
+                </Flex>
             </>
         );
     }
@@ -364,55 +308,101 @@ class Login extends React.Component {
     render() {
         return (
             <div>
-                <div className="headerx"></div>
                 <form>
-                    <div className="header">
-                        <HeaderImage></HeaderImage>
-                        <HeaderLogin></HeaderLogin>
-                        <Footer></Footer>
-                    </div>
+                    <HeaderLogin></HeaderLogin>
                 </form>
                 <form onSubmit={this.handleSubmit} noValidate>
                     <div class="content">
-                        <Article></Article>
+                        {/* <Article></Article> */}
                         <Section></Section>
                     </div>
                 </form>
-                <footer></footer>
+                {/* <footer></footer> */}
             </div>
         );
     }
 }
 
+const Flex = styled.div`
+body {
+    background: linear-gradient(to bottom right, white, #bcbdc4);
+    height: 4000px;
+}
+@media (min-width: 700px) {
+    .container-1 {
+        display: flex;
+        background: #3b5998;
+        color: white;
+        margin: 0px;
+        align-items: center;
+    }
+
+.container-2{
+    display:flex;
+    background: #f3f4f8;
+    margin: 0px;
+    align-items: flex-start;
+    height: 1000px;
+    /*flex-direction: column;*/
+  }
+  .container-3{
+    display:flex;
+    background: white;
+    margin: 0px;
+    align-items: center;
+    flex-direction: column;
+  }
+
+}
+
+.container-1 div, .container-2 div, .container-3 div{
+  padding:10px;
+}
+
+
+.container-1-box{
+   /*flex-basis: 12;*/
+}
+.container-1-box:nth-of-type(1){
+    flex-basis: 10%;
+ }
+  .container-1-box:nth-of-type(2){
+    flex-basis: 45%;
+ }
+ .container-1-box:nth-of-type(3){
+      flex-basis: 16%;
+ }
+  .container-1-box:nth-of-type(4){
+    flex-basis: 16%;
+ }
+
+ .container-box:nth-of-type(1){
+    flex-basis: 10%;
+ }
+  .container-box:nth-of-type(2){
+    flex-basis: 45%;
+ }
+ .container-box:nth-of-type(3){
+      flex-basis: 15%;
+ }
+`
+
 const img1 = {
-    left: '20px',
     height: '50px',
-    top: '5px',
 }
 const form1 = {
-    left: '850px',
-    top: '20px',
     height: '60px',
     fontSize: '15px',
     width: '180px',
 }
-const form2 = {
-    left: '1100px',
-    top: '20px',
-    fontSize: '15px',
-    height: '60px',
-    width: '200px',
-}
 const headerbox = {
     width: '200px',
-    height: '3px',
+    height: '4px',
     background: 'white',
-    padding: '15px',
-    fontSize: '20px',
+    padding: '10px',
+    fontSize: '15px',
 }
 const intro1 = {
-    top: '40px',
-    left: '100px',
     fontFamily: 'verdana',
     fontSize: '25px',
     color: '#142170',
@@ -420,8 +410,6 @@ const intro1 = {
     width: '650px',
 }
 const intro2 = {
-    top: '20px',
-    left: '850px',
     fontFamily: 'verdana',
     fontSize: '45px',
     color: 'black',
@@ -429,8 +417,6 @@ const intro2 = {
     height: '60px',
 }
 const intro3 = {
-    top: '85px',
-    left: '850px',
     fontFamily: 'verdana',
     fontSize: '20px',
     color: 'black',
@@ -438,29 +424,56 @@ const intro3 = {
     width: '300px',
 }
 const img2 = {
-    top: '150px',
-    left: '100px',
     height: '250px',
     width: '550px',
 }
+const submit1 = {
+    marginTop: '5px',
+    background: '#4267b2',
+    color: 'white',
+    height: '25px',
+    width: '80px',
+    fontWeight: 'bold',
+}
+const form3 = {
+    fontFamily: 'verdana',
+    fontSize: '20px',
+    color: '#142170',
+    width: '500px',
+    height: '495px',
+}
+
+const namebox = {
+    marginTop: '15px',
+    width: '300px',
+    height: '20px',
+    borderRadius: '5px/5px',
+    background: 'white',
+    padding: '15px',
+    fontSize: '20px',
+}
+
+const form4 = {
+    fontSize: '14px',
+}
+
+const form5 = {
+    fontSize: '15px',
+}
+
+const selectday = {
+    width: '70px',
+    height: '30px',
+    fontSize: '15px',
+}
+const selectmonth = {
+    width: '80px',
+    height: '30px',
+    fontSize: '15px',
+}
+
+
 const Wrapper = styled.div`
-.header {
-    position: fixed;
-    width: 100%;
-    height: 100px;
-    background: #3b5998;
-    top: 0;
-    left: 0;
-    color: white;
-    z-index: 7;
-    font-family: verdana;
-  }
-  .content {
-    position: absolute;
-    left: 0;
-    top: 100px;
-    width: 100%;
-    height: 800px;
-  }
+
 `
 export default Login;

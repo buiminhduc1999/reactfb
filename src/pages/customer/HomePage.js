@@ -25,12 +25,22 @@ export default class HomePage extends Component {
             return <Redirect to="/" />
         }
         return (
-            <div>
+            <>
                 <Header></Header>
-                <HomeLeft></HomeLeft>
-                <Main></Main>
-                <HomeRight></HomeRight>
-            </div>
+                <Wrapper>
+                    <div className="container-2">
+                        <div class="container-2-box">
+                            <HomeLeft></HomeLeft>
+                        </div>
+                        <div class="container-2-box">
+                            <Main></Main>
+                        </div>
+                        <div class="container-2-box">
+                            <HomeRight></HomeRight>
+                        </div>
+                    </div>
+                </Wrapper>
+            </>
         )
     }
 }
@@ -39,31 +49,49 @@ function Main() {
     return (
         <div>
             <Wrapper>
-                <div className="content">
-                    <br />
-                    <br />
-                    <div className="status">
-                        <div className="wrapper2">
-                            <div style={img3} className="imgClass" >
-                                <img src="avata.png" />
+                <br />
+                <br />
+                <div className="status">
+                    <div className="wrapper2">
+                        <div style={img3} >
+                            <img src="cat.png" style={profpic2} />
+                        </div>
+                        <div>
+                            <input placeholder="ABC ơi, bạn đang nghĩ gì thế" type="text" style={searchbox2} />
+                        </div>
+                    </div>
+                    <hr />
+                    <div className="wrapper">
+                        <ButtonPage icon={'stream.png'} nameButton='Video trực tiếp' classname='btnstatus' />
+                        <ButtonPage icon={'image.png'} nameButton='Ảnh/Video' classname='btnstatus' />
+                        <ButtonPage icon={'icon.png'} nameButton='Cảm xúc/Hoạt động' classname='btnstatus1' />
+                    </div>
+                </div>
+                <div className="room">
+                    <div style={profilearea10}>
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="room.png" />
+                                </td>
+                                <td>
+                                    Phòng họp mặt
+                                </td>
+                                <td>&emsp; &emsp; &emsp; &emsp;&emsp;&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp;
+								  <a href="#">Tạo</a></td>
+                            </tr>
+                        </table>
+                    </div>
 
-                            </div>
-                            <div>
-                                <input placeholder="Tìm kiếm trên Facebook" type="text" id="searchbox" />
-                            </div>
-                        </div>
-                        <hr />
-                        <div className="wrapper">
-                            <div style={profilearea5} className="btnstatus">
-                                <a href="#"><img src="stream.png" /><span>Video trực tiếp</span></a>
-                            </div>
-                            <div style={profilearea5} className="btnstatus">
-                                <a href="#"><img src="image.png" /><span>Ảnh/Video</span></a>
-                            </div>
-                            <div style={profilearea5} className="btnstatus1" >
-                                <a href="#"><img src="icon.png" /><span>Cảm xúc/Hoạt động</span></a>
-                            </div>
-                        </div>
+                    <div style={img30} >
+                        <img src="cat.png" style={profpic20} />
+                        <img src="cat.png" style={profpic20} />
+                        <img src="cat.png" style={profpic20} />
+                        <img src="cat.png" style={profpic20} />
+                        <img src="cat.png" style={profpic20} />
+                        <img src="cat.png" style={profpic20} />
+                        <img src="cat.png" style={profpic20} />
+                        <img src="cat.png" style={profpic20} />
                     </div>
                 </div>
             </Wrapper>
@@ -71,89 +99,149 @@ function Main() {
     );
 }
 
+export function ButtonPage(props) {
+
+    return (
+        <div style={profilearea6} className={props.classname}>
+            <table>
+                <tr>
+                    <td>
+                        <img src={props.icon} />
+                    </td>
+                    <td>
+                        <a href={props.nameButton}>Video trực tiếp</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    );
+}
+
+
+
 const Wrapper = styled.div`
+
+@media (min-width: 1000px) {
+    .container-2 {
+        display: flex;
+        background: #ff7f27;
+        flex-direction: row;
+        height: 100%;
+    }
+}
+.container-2 div {
+    padding: 5px;
+}
+.container-2-box:nth-of-type(1) {
+    background-color: #18191a;
+    flex-basis: 24%;
+}
+.container-2-box:nth-of-type(2) {
+    flex-basis: 55%;
+}
+.container-2-box:nth-of-type(3) {
+    flex-basis: 22%;
+    background-color: #18191a;
+}
+
 .status {
     background-color: #242526;
-    width: 500px;
-    height: 125px;
-    margin-top: 60px;
-    top: 20px;
-    margin-bottom: 20px;
-    margin-left: 120px;
-    border-radius: 15px/15px;
-    font-size: 15px;
-  }
-  .content {
-    background-color: #18191a;
-    width: 1017px;
-    height: 100%;
-    top: 60px;
-    left: 10px;
+	width: 500px;
+	height: 140px;
+	margin-top: 50px;
+	margin-bottom: 20px;
+	margin-left: 95px;
+	border-radius: 15px/15px;
   }
   .wrapper2 {
+    margin-left: 8px;
     display: grid;
-    grid-template-columns: 120px 170px;
+    grid-template-columns: 50px 50px;
+    font-size: 12px;
   }
   .wrapper {
-    margin-left: 10px;
+    margin-left: 0px;
     display: grid;
     grid-template-columns: 170px 150px 170px;
   }
   .btnstatus:hover {
-    background-color: #303031;
-    color: white;
-    width: 140px;
+	background-color: #303031;
+  	width: 150px;
+  	border-radius: 10px/10px;
   }
-  
+
 .btnstatus1:hover {
     background-color: #303031;
     color: white;
-    width: 170px;
+    width: 165px;
+    border-radius: 10px/10px;
   }
-  .wrapper2 {
-    margin-left: 10px;
-    display: grid;
-    grid-template-columns: 50px 170px;
-}
-.wrapper {
-    margin-left: 10px;
-    display: grid;
-    grid-template-columns: 170px 150px 170px;
-}
-#searchbox {
-    color: antiquewhite;
-    font-size: 15px;
-    margin-top: 15px;
-    width: 250px;
-    height: 17px;
-    background: #3a3b3c;
-    padding: 5px;
-    outline: none;
-    outline-width: 0;
-    border-radius: 20px/20px;
-    background-position: 5px;
-    background-repeat: no-repeat;
-}
-.imgClass {
-    margin-top: 15px;
-}
+    .wrapper {
+        margin - left: 10px;
+        display: grid;
+        grid-template-columns: 170px 150px 170px;
+  }
 .status {
     background-color: #242526;
-    width: 500px;
-    height: 125px;
-    margin-top: 60px;
-    top: 20px;
-    margin-bottom: 20px;
-    margin-left: 420px;
-    border-radius: 15px/15px;
+	width: 500px;
+	height: 140px;
+	margin-top: 50px;
+	margin-bottom: 20px;
+	margin-left: 95px;
+	border-radius: 15px/15px;
 }
+.room{
+	background-color: #242526;
+	width: 500px;
+	height: 90px;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	margin-left: 95px;
+	border-radius: 15px/15px;
+}
+
+/*ahuhu*/
+  tr:hover {
+      background-color:#303031;
+    } 
 `
-const profilearea5 = {
+const searchbox2 = {
+    marginTop: '5px',
     fontSize: '15px',
-    marginTop: '10px',
+    width: '400px',
+    height: '25px',
+    background: '#3a3b3c',
+    padding: '5px',
+    outline: 'none',
+    outlineWidth: '0',
+    borderRadius: '20px/20px',
+    backgroundPosition: '5px',
+    backgroundRepeat: 'no-repeat',
 }
 const img3 = {
-    // left: '20px',
-    // height: '50px',
-    // top: '5px',
+    height: '50px',
+}
+const profilearea6 = {
+    fontSize: '13px',
+    color: '#b0b3b8',
+}
+const profpic2 = {
+    marginTop: '5px',
+    height: '40px',
+    borderRadius: '20px/20px',
+}
+const profilearea10 = {
+    fontSize: '15px',
+    color: '#b0b3b8',
+}
+const img30 = {
+    margin: '5px',
+    height: '50px',
+}
+
+const profpic20 = {
+    marginTop: '-5px',
+    marginLeft: '10px',
+    height: '40px',
+    borderRadius: '20px/20px',
 }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Login from './pages/public/Login';
 import HomePage from './pages/customer/HomePage';
 import { Switch, Route } from 'react-router-dom'
@@ -11,7 +10,6 @@ function App() {
       <Route exact path="/" component={Login}></Route>
       <Route path="/home" component={HomePage}></Route>
       <Route path="/logout" component={Logout}></Route>
-
     </Switch>
   );
 }
