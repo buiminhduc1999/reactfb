@@ -201,11 +201,11 @@ const Wrapper = styled.div`
 }
 
 /*ahuhu*/
-th, td {
+    th, td {
     text-align: left;
   }
   tr:hover {
-        border-radius: 20px/20px;
+        border-radius: 25px/20px;
       background-color:#303031;
     } 
 `

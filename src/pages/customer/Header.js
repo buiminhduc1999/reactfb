@@ -1,150 +1,212 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'
 import { ReactComponent as BellIcon } from './icons/bell.svg';
 import { ReactComponent as MessengerIcon } from './icons/messenger.svg';
-import { ReactComponent as PlusIcon } from './icons/plus.svg';
 import { ReactComponent as CaretIcon } from './icons/caret.svg';
+import { ReactComponent as PlusIcon } from './icons/plus.svg';
 import { ReactComponent as CogIcon } from './icons/cog.svg';
+import { ReactComponent as ChevronIcon } from './icons/chevron.svg';
+import { ReactComponent as ArrowIcon } from './icons/arrow.svg';
 import { ReactComponent as BoltIcon } from './icons/bolt.svg';
-
+import { CSSTransition } from 'react-transition-group';
 function HeaderHome() {
   return (
-    <div>
-      <body>
-        <Wrapper>
-          <div class="container-1">
-            <div id="img3" className="container-1-box">
-              <img src="logohomepage.png" />
-            </div>
-            <div className="container-1-box">
-              <input placeholder="         Tìm kiếm trên Facebook" type="text" className="searchbox1" />
-            </div>
-            <div className="container-1-box">
-              <a href="watch.html"><img src="home.png" /></a>
-            </div>
-
-            <div className="container-1-box">
-              <a href="market.html"><img src="watch.png" /></a>
-            </div>
-
-            <div className="container-1-box">
-              <a href="group.html"><img src="market.png" /></a>
-            </div>
-
-            <div className="container-1-box">
-              <a href="facebook.html"><img src="group.png" /></a>
-            </div>
-
-            <div className="container-1-box">
-              <a href="facebook.html"><img src="game.png" /></a>
-            </div>
-            <div className="container-1-box">
-              <a href="#"><img src="cat.png" style={profpic1} />  </a>
-            </div>
-            <div className="container-1-box">
-              Đức
-                        </div>
-
-            <div className="container-1-box">
-              <NavItem icon={<PlusIcon />} />
-            </div>
-            <div className="container-1-box">
-              <NavItem icon={<MessengerIcon />} />
-            </div>
-            <div className="container-1-box">
-              <NavItem icon={<BellIcon />} />
-            </div>
-            <div className="container-1-box">
-              <NavItem icon={<CaretIcon />}>
-                <Dropdown>
-                  <DropDownMenu />
-                </Dropdown>
-              </NavItem>
-            </div>
+    <Wrapper>
+      <Dropdown>
+        <Navbar>
+          <div id="img3" className="container-1-box">
+            <img src="logohomepage.png" />
           </div>
-        </Wrapper>
-      </body>
-    </div>
+          <div className="container-1-box">
+            <input placeholder="         Tìm kiếm trên Facebook" type="text" className="searchbox1" />
+          </div>
+          <div className="container-1-box">
+            <a href="watch.html"><img src="home.png" /></a>
+          </div>
+
+          <div className="container-1-box">
+            <a href="market.html"><img src="watch.png" /></a>
+          </div>
+
+          <div className="container-1-box">
+            <a href="group.html"><img src="market.png" /></a>
+          </div>
+
+          <div className="container-1-box">
+            <a href="facebook.html"><img src="group.png" /></a>
+          </div>
+
+          <div className="container-1-box">
+            <a href="facebook.html"><img src="game.png" /></a>
+          </div>
+          <div className="container-1-box">
+            <table>
+              <tr>
+                <th><img src="cat.png" style={profpic1} /></th>
+                <th>Đức</th>
+              </tr>
+            </table>
+          </div>
+          <NavItem icon={<PlusIcon />} />
+          <NavItem icon={<MessengerIcon />} />
+          <NavItem icon={<BellIcon />} />
+
+          <NavItem icon={<CaretIcon />}>
+            <DropdownMenu></DropdownMenu>
+          </NavItem>
+        </Navbar>
+      </Dropdown >
+    </Wrapper>
+  );
+}
+function Navbar(props) {
+  return (
+    <nav className="navbar">
+      <ul className="navbar-nav">{props.children}</ul>
+    </nav>
   );
 }
 function NavItem(props) {
   const [open, setOpen] = useState(false);
+
   return (
-    <Dropdown>
-      <li className="nav-item">
-        <a href="#" className="icon-button" onClick={() => setOpen(!open)}>
-          {props.icon}
-        </a>
-        {open && props.children}
-      </li>
-    </Dropdown>
-  )
+    <li className="nav-item">
+      <a href="#" className="icon-button" onClick={() => setOpen(!open)}>
+        {props.icon}
+      </a>
+
+      {open && props.children}
+    </li>
+  );
 }
-function DropDownMenu() {
+function DropdownMenu() {
+  const [activeMenu, setActiveMenu] = useState('main');
+  const [menuHeight, setMenuHeight] = useState(null);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    setMenuHeight(dropdownRef.current?.firstChild.offsetHeight)
+  }, [])
+
+  function calcHeight(el) {
+    const height = el.offsetHeight;
+    setMenuHeight(height);
+  }
+
   function DropdownItem(props) {
     return (
-      <Dropdown>
-        <a href='#' className="menu-item">
-          <span className="icon-button">{props.leftIcon}</span>
-          {props.children}
-          <span className="icon-right">{props.rightIcon}</span>
-        </a>
-      </Dropdown>
-    )
+      <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+        <span className="icon-button">{props.leftIcon}</span>
+        {props.children}
+        <span className="icon-right">{props.rightIcon}</span>
+      </a>
+    );
   }
+
   return (
-    <Dropdown>
-      <div className="dropdown">
-        <DropdownItem
-          leftIcon={<CogIcon />}
-          rightIcon={<CogIcon />}
-        >
-          Settings</DropdownItem>
-        <DropdownItem
-          leftIcon={<BoltIcon />}
-          rightIcon={<BoltIcon />}
-        >
-          Logout</DropdownItem>
-      </div>
-    </Dropdown>
-  )
+    <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
+      <CSSTransition
+        in={activeMenu === 'main'}
+        timeout={500}
+        classNames="menu-primary"
+        unmountOnExit
+        onEnter={calcHeight}>
+        <div className="menu">
+          <DropdownItem
+            leftIcon={<CogIcon />}
+            rightIcon={<ChevronIcon />}
+            goToMenu="settings">
+            Cài đặt & quyền riêng tư
+          </DropdownItem>
+          <DropdownItem
+            leftIcon="🦧"
+            rightIcon={<ChevronIcon />}
+            goToMenu="animals">
+            Trợ giúp & hỗ trợ
+          </DropdownItem>
+          <DropdownItem>Đăng xuất</DropdownItem>
+        </div>
+      </CSSTransition>
+      <CSSTransition
+        in={activeMenu === 'settings'}
+        timeout={500}
+        classNames="menu-secondary"
+        unmountOnExit
+        onEnter={calcHeight}>
+        <div className="menu">
+          <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
+            <h2>Cài đặt & quyền riêng tư</h2>
+          </DropdownItem>
+          <DropdownItem leftIcon={<BoltIcon />}>Cài đặt</DropdownItem>
+          <DropdownItem leftIcon={<BoltIcon />}>Kiểm tra quyền riêng tư</DropdownItem>
+          <DropdownItem leftIcon={<BoltIcon />}>Lối tắt quyền riêng tư</DropdownItem>
+          <DropdownItem leftIcon={<BoltIcon />}>Nhật ký hoạt động</DropdownItem>
+        </div>
+      </CSSTransition>
+      <CSSTransition
+        in={activeMenu === 'animals'}
+        timeout={500}
+        classNames="menu-secondary"
+        unmountOnExit
+        onEnter={calcHeight}>
+        <div className="menu">
+          <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
+            <h2>Animals</h2>
+          </DropdownItem>
+          <DropdownItem leftIcon="🦘">Kangaroo</DropdownItem>
+          <DropdownItem leftIcon="🐸">Frog</DropdownItem>
+          <DropdownItem leftIcon="🦋">Horse?</DropdownItem>
+          <DropdownItem leftIcon="🦔">Hedgehog</DropdownItem>
+        </div>
+      </CSSTransition>
+    </div>
+  );
 }
 
 
 
 
 const Dropdown = styled.div`
+body {
+  margin: 0;
+  background: #151616;
+  font-family: roboto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-  }
-  
-  :root {
-    --bg: #242526;
-    --bg-accent: #484a4d;
-    --text-color: #dadce1;
-    --nav-size: 60px;
-    --border: 1px solid #474a4d;
-    --border-radius: 8px;
-    --speed: 500ms;
-  }
-  
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  a {
-    color: var(--text-color);
-    text-decoration: none;
-  }
-  
-  /* <nav> */
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+:root {
+  --bg: #242526;
+  --bg-accent: #484a4d;
+  --text-color: #dadce1;
+  --nav-size: 60px;
+  --border: 1px solid #474a4d;
+  --border-radius: 8px;
+  --speed: 500ms;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/* Top Navigation Bar */
+
+/* <nav> */
   .navbar {
-    height: var(--nav-size);
-    background-color: var(--bg);
-    padding: 0 1rem;
+    height: 57px;
+    background-color: #242526;
+    padding: 0 0rem;
     border-bottom: var(--border);
   }
   /* <ul> */
@@ -152,11 +214,11 @@ code {
     max-width: 100%;
     height: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
   /* <li> */
   .nav-item {
-    width: calc(var(--nav-size) * 0.8);
+    width: calc(var(--nav-size) * 0.4 );
     display: flex;
     align-items: center;
     justify-content: center;
@@ -170,7 +232,7 @@ code {
     background-color: #484a4d;
     border-radius: 50%;
     padding: 10px;
-    margin: 2px;
+    margin: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -187,13 +249,13 @@ code {
   }
   .dropdown {
     position: absolute;
-    top: 58px;
+    top: 54px;
     width: 300px;
     transform: translateX(-45%);
     background-color: #242526;
-    border: var(--border);
+    border: 1px;
     border-radius: var(--border-radius);
-    padding: 5rem;
+    padding: 1rem;
     overflow: hidden;
     transition: height var(--speed) ease;
 }
@@ -227,78 +289,76 @@ code {
     margin-left: auto;
   }
   
+/* CSSTransition classes  */
+.menu-primary-enter {
+  position: absolute;
+  transform: translateX(-110%);
+}
+.menu-primary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+.menu-primary-exit {
+  position: absolute;
+}
+.menu-primary-exit-active {
+  transform: translateX(-110%);
+  transition: all var(--speed) ease;
+}
+
+.menu-secondary-enter {
+  transform: translateX(110%);
+}
+.menu-secondary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+.menu-secondary-exit {
+}
+.menu-secondary-exit-active {
+  transform: translateX(110%);
+  transition: all var(--speed) ease;
+}
+
+
+  
 `
 const Wrapper = styled.div`
-    @media (min-width: 1000px) {
-        .container-1{
-            display:flex;
-            background: #242526;
-            color: white;
-            align-items: flex-start;
-          }
+    .container-1-box:nth-of-type(1){
+      margin-left: 20px;
+    flex-basis: 0%;
     }
+    .container-1-box:nth-of-type(2){
+      margin-top: 5px;
+      flex-basis: 26%;
+    }
+    .container-1-box:nth-of-type(3){
+      flex-basis: 5%;
+    }
+    .container-1-box:nth-of-type(4){
 
-  .container-1 div, .container-2 div, .container-3 div{
-    padding:0px;
-  }
-
-
- .container-1-box{
- 	/*flex-basis: 12;*/
-  }
-  .container-1-box:nth-of-type(1){
-  	margin: 2px;
- 	flex-basis: 0.5%;
-  }
-   .container-1-box:nth-of-type(2){
-   	margin-top: 5px;
- 	flex-basis: 25%;
-  }
-  .container-1-box:nth-of-type(3){
-  	 flex-basis: 5%;
-  }
-   .container-1-box:nth-of-type(4){
- 	flex-basis: 5%;
-  }
-  .container-1-box:nth-of-type(5){
- 	flex-basis: 5%;
-  }
-  .container-1-box:nth-of-type(6){
+    flex-basis: 5%;
+    }
+    .container-1-box:nth-of-type(5){
       
- 	flex-basis: 5%;
-  }
-  .container-1-box:nth-of-type(7){
-      
-    flex-basis: 17%;
- }
-  .container-1-box:nth-of-type(8){
-    margin-top: 11px;
-    flex-basis: 1%;
+    flex-basis: 5%;
     }
-    .container-1-box:nth-of-type(9){
-        margin-top: 15px;
-        flex-basis: 3.5%;
-        }
- .container-1-box:nth-of-type(10){
-    margin-top: 5px;
-    flex-basis: 3.5%;
+    .container-1-box:nth-of-type(6){
+        
+    flex-basis: 5%;
     }
- .container-1-box:nth-of-type(11){
-    margin-top: 5px;
-    flex-basis: 3.5%;
+    .container-1-box:nth-of-type(7){
+        
+      flex-basis: 14%;
     }
- .container-1-box:nth-of-type(12){
-    margin-top: 5px;
-    flex-basis: 3.5%;
+    .container-1-box:nth-of-type(8){
+      color:white;
+      flex-basis: 7%;
+      margin-top: 7px;
     }
-    .container-1-box:nth-of-type(13){
-        margin-top: 5px;
-        flex-basis: 3.5%;
-    }
-  
-.searchbox1 {
+  .searchbox1 {
     font-size: 15px;
-    top: 15px;
+    color:white;
     width: 250px;
     height: 25px;
     background: #3a3b3c;
