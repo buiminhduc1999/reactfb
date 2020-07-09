@@ -88,7 +88,6 @@ class HeaderLogin extends React.Component {
                         <div id="img1" className="container-1-box">
                             <img src="facebook.png" />
                         </div>
-<<<<<<< HEAD
                         <form onSubmit={this.submitForm}>
                             <div style={form1} className="container-1-box">Email hoặc điện thoại
                             <input
@@ -118,37 +117,6 @@ class HeaderLogin extends React.Component {
                                 <input style={submit1} type="submit" value="Đăng nhập" onSubmit={this.submitForm} />
                             </div>
                         </form>
-=======
-                        {/* <form onSubmit={this.submitForm}> */}
-                        <div style={form1} className="container-1-box">Email hoặc điện thoại
-                            <input
-                                style={headerbox}
-                                type="text"
-                                name="username"
-                                value={this.state.username}
-                                onChange={this.onChange}
-                            /><br />
-                        </div>
-                        <div style={form1} className="container-1-box">
-                            Password<br />
-                            <input
-                                className={formErrors.password.length > 0 ? "error" : null}
-                                style={headerbox}
-                                type="password"
-                                name="password"
-                                value={this.state.password}
-                                onChange={this.onChange}
-                            /><br />
-                                    Quên tài khoản?
-                                    {formErrors.password.length > 0 && (
-                                <div>{formErrors.password}</div>
-                            )}
-                        </div>
-                        <div className="container-1-box">
-                            <input style={submit1} type="submit" value="Đăng nhập" onSubmit={this.submitForm} />
-                        </div>
-                        {/* </form> */}
->>>>>>> ba81580d237f72cd9382fbfba0d9aebd7971fb55
                     </div>
                 </Flex>
             </>
@@ -229,22 +197,13 @@ class Section extends React.Component {
             <>
                 <Flex>
                     <div className="container-2">
-<<<<<<< HEAD
                         <div className="container-box"></div>
                         <div className="container-box">
-=======
-                        <div className="container-2-box"></div>
-                        <div className="container-2-box">
->>>>>>> ba81580d237f72cd9382fbfba0d9aebd7971fb55
                             <div style={intro1} class=""><strong>Facebook giúp bạn kết nối và chia sẻ với mọi</strong><br />
                                 <strong>người trong cuộc sống của bạn.</strong></div>
                             <div style={img2} class="" ><img src="world.png" /></div>
                         </div>
-<<<<<<< HEAD
                         <div class="container-box">
-=======
-                        <div class="container-2-box">
->>>>>>> ba81580d237f72cd9382fbfba0d9aebd7971fb55
                             <div style={intro2} class=""><strong>Đăng ký</strong></div>
                             <div style={intro3} class="">Nhanh chóng và dễ dàng.</div>
                             <div style={form3} class="">
@@ -365,13 +324,10 @@ class Login extends React.Component {
 }
 
 const Flex = styled.div`
-<<<<<<< HEAD
 body {
     background: linear-gradient(to bottom right, white, #bcbdc4);
     height: 4000px;
 }
-=======
->>>>>>> ba81580d237f72cd9382fbfba0d9aebd7971fb55
 @media (min-width: 700px) {
     .container-1 {
         display: flex;
@@ -420,7 +376,6 @@ body {
     flex-basis: 16%;
  }
 
-<<<<<<< HEAD
  .container-box:nth-of-type(1){
     flex-basis: 10%;
  }
@@ -428,15 +383,6 @@ body {
     flex-basis: 45%;
  }
  .container-box:nth-of-type(3){
-=======
- .container-2-box:nth-of-type(1){
-    flex-basis: 10%;
- }
-  .container-2-box:nth-of-type(2){
-    flex-basis: 45%;
- }
- .container-2-box:nth-of-type(3){
->>>>>>> ba81580d237f72cd9382fbfba0d9aebd7971fb55
       flex-basis: 15%;
  }
 `

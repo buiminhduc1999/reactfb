@@ -40,16 +40,6 @@ const profilearea7 = {
     alignItems: 'center',
     fontSize: '20px',
     color: '#b0b3b8',
-<<<<<<< HEAD
-}
-const users = {
-    alignItems: 'center',
-    fontSize: '15px',
-    color: '#b0b3b8',
-    fontWeight: '15px',
-    marginTop: '5px',
-=======
->>>>>>> ba81580d237f72cd9382fbfba0d9aebd7971fb55
 }
 const users = {
     alignItems: 'center',

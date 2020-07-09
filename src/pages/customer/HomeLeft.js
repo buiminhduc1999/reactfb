@@ -66,18 +66,10 @@ const profilearea = {
     marginTop: '10px',
     fontSize: '15px',
     color: 'white',
-<<<<<<< HEAD
 }
 const profpic1 = {
     height: '30px',
     borderRadius: '10px/10px',
 }
+
 export default HomeLeft;
-=======
-}
-const profpic1 = {
-    height: '30px',
-    borderRadius: '10px/10px',
-}
-export default HomeLeft;
->>>>>>> ba81580d237f72cd9382fbfba0d9aebd7971fb55
