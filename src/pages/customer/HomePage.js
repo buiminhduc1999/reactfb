@@ -55,9 +55,27 @@ function Main() {
                     <div className="wrapper2">
                         <div style={img3} >
                             <img src="cat.png" style={profpic2} />
+<<<<<<< HEAD
                         </div>
                         <div>
                             <input placeholder="ABC ơi, bạn đang nghĩ gì thế" type="text" style={searchbox2} />
+=======
+                        </div>
+                        <div>
+                            <input placeholder="ABC ơi, bạn đang nghĩ gì thế" type="text" style={searchbox2} />
+                        </div>
+                    </div>
+                    <hr />
+                    <div className="wrapper">
+                        <div style={profilearea6} className="btnstatus">
+                            <a href="a"><img src="stream.png" />Video trực tiếp</a>
+                        </div>
+                        <div style={profilearea6} className="btnstatus">
+                            <a href="a"><img src="image.png" />Ảnh/Video</a>
+                        </div>
+                        <div style={profilearea6} className="btnstatus1">
+                            <a href="a"><img src="icon.png" />Cảm xúc/Hoạt động</a>
+>>>>>>> ba81580d237f72cd9382fbfba0d9aebd7971fb55
                         </div>
                     </div>
                     <hr />
@@ -170,8 +188,13 @@ const Wrapper = styled.div`
   	border-radius: 10px/10px;
   }
 
+<<<<<<< HEAD
 .btnstatus1:hover {
     background-color: #303031;
+=======
+    .btnstatus1:hover {
+    background - color: #303031;
+>>>>>>> ba81580d237f72cd9382fbfba0d9aebd7971fb55
     color: white;
     width: 165px;
     border-radius: 10px/10px;
@@ -181,6 +204,14 @@ const Wrapper = styled.div`
         display: grid;
         grid-template-columns: 170px 150px 170px;
   }
+<<<<<<< HEAD
+=======
+    .wrapper {
+        margin - left: 10px;
+        display: grid;
+        grid-template-columns: 170px 150px 170px;
+  }
+>>>>>>> ba81580d237f72cd9382fbfba0d9aebd7971fb55
 .status {
     background-color: #242526;
 	width: 500px;
@@ -189,6 +220,7 @@ const Wrapper = styled.div`
 	margin-bottom: 20px;
 	margin-left: 95px;
 	border-radius: 15px/15px;
+<<<<<<< HEAD
 }
 .room{
 	background-color: #242526;
@@ -198,6 +230,8 @@ const Wrapper = styled.div`
 	margin-bottom: 10px;
 	margin-left: 95px;
 	border-radius: 15px/15px;
+=======
+>>>>>>> ba81580d237f72cd9382fbfba0d9aebd7971fb55
 }
 
 /*ahuhu*/
@@ -220,6 +254,18 @@ const searchbox2 = {
 }
 const img3 = {
     height: '50px',
+<<<<<<< HEAD
+=======
+}
+const profilearea6 = {
+    fontSize: '13px',
+    color: '#b0b3b8',
+}
+const profpic2 = {
+    marginTop: '5px',
+    height: '40px',
+    borderRadius: '20px/20px',
+>>>>>>> ba81580d237f72cd9382fbfba0d9aebd7971fb55
 }
 const profilearea6 = {
     fontSize: '13px',
