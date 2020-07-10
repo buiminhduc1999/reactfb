@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import News from './News';
+
+
 export default class HomePage extends Component {
     constructor(props) {
         super(props)
@@ -81,8 +83,8 @@ function Main() {
                         <Stream />
                     </div>
                 </div>
-
-                <News Icon='wall.jpg' Image='wall.jpg' />
+                <News Name='Bùi Minh Đức' Icon='wall.jpg' Image='cat.png' />
+                <News Name='Nguyễn Văn A' Icon='cat.png' Image='wall.jpg' />
             </Wrapper>
         </div>
     );
@@ -90,7 +92,7 @@ function Main() {
 function Stream(props) {
     const posts = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     const content = posts.map((post) =>
-        <img src="cat.png" style={profpic20} />
+        <img src="avatar.jpg" style={profpic20} />
     );
     return (
         <>
@@ -278,21 +280,4 @@ const profpic20 = {
     marginLeft: '10px',
     height: '40px',
     borderRadius: '20px/20px',
-}
-const IconNews = {
-    width: '35px',
-    height: '35px',
-    borderRadius: '25px',
-}
-const textNews = {
-    fontSize: '15px',
-    width: '400px',
-    height: '20px',
-    background: '#3a3b3c',
-    padding: '5px',
-    outline: 'none',
-    outlineWidth: '0',
-    borderRadius: '20px/20px',
-    backgroundPosition: '5px',
-    backgroundRepeat: 'no-repeat',
 }

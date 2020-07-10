@@ -1,8 +1,7 @@
 
 import styled from 'styled-components';
-import React, { Component } from 'react';
+import React, { Component, memo } from 'react';
 import ButtonHome, { profilearea5, profpic1 } from "./ButtonHome";
-
 class HomeLeft extends Component {
     constructor() {
         super()
@@ -51,18 +50,34 @@ class HomeLeft extends Component {
                                 </>
                                 : null
                         }
-                        <div style={profilearea5} className="btn">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <img src='down.png' style={profpic1} onClick={() => this.operation()} />
-                                    </td>
-                                    <td>
-                                        <a href="#" onClick={() => this.operation()}> Xem thêm</a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
+                        {
+                            this.state.showMe ?
+                                <div style={profilearea5} className="btn">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <img src='downleft.png' style={profpic1} onClick={() => this.operation1()} />
+                                            </td>
+                                            <td>
+                                                <a href="#" onClick={() => this.operation()}> Ẩn bớt</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                :
+                                <div style={profilearea5} className="btn">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <img src='down.png' style={profpic1} onClick={() => this.operation()} />
+                                            </td>
+                                            <td>
+                                                <a href="#" onClick={() => this.operation()}> Xem thêm</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                        }
 
                         <hr></hr>
                         <div className="">
@@ -89,21 +104,39 @@ class HomeLeft extends Component {
                                                 { icon: 'fun.png', nameButton: 'Bộ tộc MixiGaming' },
                                             ]
                                         } />
+
                                     </>
                                     : null
                             }
-                            <div style={profilearea5} className="btn">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <img src='down.png' style={profpic1} onClick={() => this.operation1()} />
-                                        </td>
-                                        <td>
-                                            <a href="#" onClick={() => this.operation1()}> Xem thêm</a>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
+                            {
+                                this.state.showShortcuts ?
+                                    <div style={profilearea5} className="btn">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <img src='downleft.png' style={profpic1} onClick={() => this.operation1()} />
+                                                </td>
+                                                <td>
+                                                    <a href="#" onClick={() => this.operation1()}> Ẩn bớt</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    :
+                                    <div style={profilearea5} className="btn">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <img src='down.png' style={profpic1} onClick={() => this.operation1()} />
+                                                </td>
+                                                <td>
+                                                    <a href="#" onClick={() => this.operation1()}> Xem thêm</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                            }
+
                         </div>
                     </div>
                 </Wrapper>
@@ -123,6 +156,7 @@ function ButtonHomes(props) {
         </>
     );
 }
+
 
 const Wrapper = styled.div`
     .btn:hover {

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const IconNews = {
     width: '35px',
@@ -17,6 +16,7 @@ const textNews = {
     borderRadius: '20px/20px',
     backgroundPosition: '5px',
     backgroundRepeat: 'no-repeat',
+    color: 'white',
 }
 function News(props) {
     return (
@@ -29,8 +29,8 @@ function News(props) {
                                 <img src={props.Icon} style={IconNews} />
                             </td>
                             <td>
-                                Bùi Minh Đức
-                                </td>
+                                {props.Name}
+                            </td>
                         </tr>
                     </table>
                 </div>

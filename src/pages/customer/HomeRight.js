@@ -1,5 +1,19 @@
 import React from 'react';
 import ButtonHome from "./ButtonHome";
+
+const profilearea7 = {
+    alignItems: 'center',
+    fontSize: '20px',
+    color: '#b0b3b8',
+}
+const users = {
+    alignItems: 'center',
+    fontSize: '15px',
+    color: '#b0b3b8',
+    fontWeight: '15px',
+    marginTop: '5px',
+}
+
 function HomeRight(props) {
     return (
         <>
@@ -24,27 +38,14 @@ function HomeRight(props) {
                 Người liên hệ
             </div>
             <div style={users} >
-                <ButtonHome icon={'cat.png'} nameButton='Nguyễn Quốc Anh' />
-                <ButtonHome icon={'cat.png'} nameButton='Nguyễn Ngọc Bách' />
-                <ButtonHome icon={'cat.png'} nameButton='Bùi Minh Đức' />
-                <ButtonHome icon={'cat.png'} nameButton='Nguyễn Quốc Anh' />
-                <ButtonHome icon={'cat.png'} nameButton='Ngô Như Hải' />
+                <ButtonHome icon={'avatar.jpg'} nameButton='Nguyễn Quốc Anh' />
+                <ButtonHome icon={'avatar.jpg'} nameButton='Nguyễn Ngọc Bách' />
+                <ButtonHome icon={'avatar.jpg'} nameButton='Bùi Minh Đức' />
+                <ButtonHome icon={'avatar.jpg'} nameButton='Nguyễn Quốc Anh' />
+                <ButtonHome icon={'avatar.jpg'} nameButton='Ngô Như Hải' />
             </div>
         </>
     );
 }
 
-
-const profilearea7 = {
-    alignItems: 'center',
-    fontSize: '20px',
-    color: '#b0b3b8',
-}
-const users = {
-    alignItems: 'center',
-    fontSize: '15px',
-    color: '#b0b3b8',
-    fontWeight: '15px',
-    marginTop: '5px',
-}
 export default HomeRight;
