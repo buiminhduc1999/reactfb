@@ -5,7 +5,6 @@ import HomeRight from './HomeRight';
 import styled from 'styled-components';
 import { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import './HomePage.css';
 
 export default class HomePage extends Component {
     constructor(props) {
@@ -124,7 +123,7 @@ const Wrapper = styled.div`
 @media (min-width: 1000px) {
     .container-2 {
         display: flex;
-        background: #ff7f27;
+        background: #18191a;
         flex-direction: row;
         height: 100%;
     }
@@ -148,8 +147,6 @@ const Wrapper = styled.div`
     background-color: #242526;
 	width: 500px;
 	height: 140px;
-	margin-top: 50px;
-	margin-bottom: 20px;
 	margin-left: 95px;
 	border-radius: 15px/15px;
   }
@@ -201,11 +198,11 @@ const Wrapper = styled.div`
 }
 
 /*ahuhu*/
-    th, td {
+th, td {
     text-align: left;
   }
   tr:hover {
-        border-radius: 25px/20px;
+        border-radius: 20px/20px;
       background-color:#303031;
     } 
 `

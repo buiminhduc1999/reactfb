@@ -3,7 +3,7 @@ import Login from './pages/public/Login';
 import HomePage from './pages/customer/HomePage';
 import { Switch, Route } from 'react-router-dom'
 import Logout from './pages/public/Logout';
-
+import './App.css';
 function App() {
   return (
     <Switch>

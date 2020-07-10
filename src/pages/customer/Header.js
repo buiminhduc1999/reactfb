@@ -9,6 +9,7 @@ import { ReactComponent as ChevronIcon } from './icons/chevron.svg';
 import { ReactComponent as ArrowIcon } from './icons/arrow.svg';
 import { ReactComponent as BoltIcon } from './icons/bolt.svg';
 import { CSSTransition } from 'react-transition-group';
+import { Link } from 'react-router-dom';
 function HeaderHome() {
   return (
     <Wrapper>
@@ -124,7 +125,7 @@ function DropdownMenu() {
             goToMenu="animals">
             Trợ giúp & hỗ trợ
           </DropdownItem>
-          <DropdownItem>Đăng xuất</DropdownItem>
+          <DropdownItem><Link to="/logout">Đăng xuất</Link></DropdownItem>
         </div>
       </CSSTransition>
       <CSSTransition

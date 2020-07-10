@@ -2,7 +2,6 @@ import React from 'react';
 import { Redirect } from 'react-router-dom'
 import styled from 'styled-components';
 import _ from 'lodash';
-import './Login.css';
 
 const passRegex = RegExp(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,10}$/
@@ -47,8 +46,7 @@ class HeaderLogin extends React.Component {
         switch (name) {
             case "password":
                 formErrors.password =
-                    passRegex.test(value) ? "" : "Email không hợp lệ";
-                // value.length < 6 ? "Phải có ít 6 kí tự" : "";
+                    passRegex.test(value) ? "" : "Password không hợp lệ";
                 break;
 
             default:
