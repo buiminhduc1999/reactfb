@@ -64,7 +64,7 @@ export function DropdownMenu() {
                         rightIcon={<ChevronIcon />}
                         goToMenu="settings">
                         Cài đặt & quyền riêng tư
-          </DropdownItem>
+                </DropdownItem>
                     <DropdownItem
                         leftIcon="🦧"
                         rightIcon={<ChevronIcon />}

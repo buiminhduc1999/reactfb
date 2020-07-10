@@ -2,7 +2,6 @@ import React from 'react';
 import { Redirect } from 'react-router-dom'
 import styled from 'styled-components';
 import _ from 'lodash';
-
 const passRegex = RegExp(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,10}$/
 );
@@ -87,33 +86,48 @@ class HeaderLogin extends React.Component {
                             <img src="facebook.png" />
                         </div>
                         <form onSubmit={this.submitForm}>
-                            <div style={form1} className="container-1-box">Email hoặc điện thoại
-                            <input
-                                    style={headerbox}
-                                    type="text"
-                                    name="username"
-                                    value={this.state.username}
-                                    onChange={this.onChange}
-                                /><br />
-                            </div>
-                            <div style={form1} className="container-1-box">
-                                Password<br />
-                                <input
-                                    className={formErrors.password.length > 0 ? "error" : null}
-                                    style={headerbox}
-                                    type="password"
-                                    name="password"
-                                    value={this.state.password}
-                                    onChange={this.onChange}
-                                /><br />
-                                    Quên tài khoản?
-                                    {formErrors.password.length > 0 && (
-                                    <div>{formErrors.password}</div>
-                                )}
-                            </div>
-                            <div className="container-1-box">
-                                <input style={submit1} type="submit" value="Đăng nhập" onSubmit={this.submitForm} />
-                            </div>
+                            <table>
+                                <tr>
+                                    <td>
+                                        Email hoặc điện thoại
+                                </td>
+                                    <td>
+                                        Password
+                                </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input
+                                            style={headerbox}
+                                            type="text"
+                                            name="username"
+                                            value={this.state.username}
+                                            onChange={this.onChange}
+                                        />
+                                    </td>
+                                    <td>
+                                        <input
+                                            className={formErrors.password.length > 0 ? "error" : null}
+                                            style={headerbox}
+                                            type="password"
+                                            name="password"
+                                            value={this.state.password}
+                                            onChange={this.onChange}
+                                        />
+                                        <br />
+                                    </td>
+                                    <td>
+                                        <input style={submit1} type="submit" value="Đăng nhập" onSubmit={this.submitForm} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td fontSize='10px'>Quên tài khoản?</td>
+                                    <td>{formErrors.password.length > 0 && (
+                                        <>{formErrors.password}</>
+                                    )}</td>
+                                </tr>
+                            </table>
                         </form>
                     </div>
                 </Flex>
@@ -248,7 +262,7 @@ class Section extends React.Component {
                                     Bằng cách nhấp vào Đăng ký, bạn đồng ý với Điều khoản, Chính sách dữ liệu và Chính sách cookie của chúng tôi. Bạn có thể nhận được thông báo của chúng tôi qua SMS và hủy nhận bất kỳ lúc nào.
                                 </div>
                                 <div>
-                                    <input type="submit" id="button2" value="Đăng Ký" />
+                                    <input type="submit" style={button2} value="Đăng Ký" />
                                 </div>
                                 <div style={form5} >
                                     Tạo Trang dành cho người nổi tiếng, nhãn hiệu hoặc doanh nghiệp.
@@ -282,23 +296,24 @@ const formValid = ({ formErrors, ...rest }) => {
 function Footer() {
     return (
         <>
-            <div class="bodyfooter">
-                <div id="footer" class="bodyfooter">
-                    Tiếng Việt
+            <Wrapper>
+                <div class="bodyfooter">
+                    <div style={footer} class="bodyfooter">
+                        Tiếng Việt
                     <a href="#"> English (UK)</a>
-                    <a href="#">中文(台灣)</a>
-                    <a href="#">日本語</a>
-                    <a href="#">한국어</a>
-                    <a href="#">ภาษาไทย</a>
-                    <a href="#">Français (France)</a>
-                    <a href="#">Español</a>
-                    <a href="#">Português (Brasil)</a>
-                    <a href="#">Deutsch</a>
-                    <a href="#">Italiano</a>
-                    <br /><hr />Leran more......
+                        <a href="#">中文(台灣)</a>
+                        <a href="#">日本語</a>
+                        <a href="#">한국어</a>
+                        <a href="#">ภาษาไทย</a>
+                        <a href="#">Français (France)</a>
+                        <a href="#">Español</a>
+                        <a href="#">Português (Brasil)</a>
+                        <a href="#">Deutsch</a>
+                        <a href="#">Italiano</a>
+                        <br /><hr />Leran more......
                 </div>
-            </div>
-
+                </div>
+            </Wrapper>
         </>
     );
 }
@@ -315,7 +330,7 @@ class Login extends React.Component {
                         <Section></Section>
                     </div>
                 </form>
-                {/* <footer></footer> */}
+                <Footer></Footer>
             </div>
         );
     }
@@ -333,7 +348,8 @@ body {
         color: white;
         margin: 0px;
         align-items: center;
-    }
+        font-size: 13px;
+        }
 
 .container-2{
     display:flex;
@@ -383,8 +399,45 @@ body {
  .container-box:nth-of-type(3){
       flex-basis: 15%;
  }
+ .form-inline {  
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+  
+  .form-inline label {
+    margin: 5px 10px 5px 0;
+  }
+  
+  .form-inline input {
+    vertical-align: middle;
+    margin: 5px 10px 5px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+  }
+  
+  .form-inline button {
+    padding: 10px 20px;
+    background-color: dodgerblue;
+    border: 1px solid #ddd;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .form-inline button:hover {
+    background-color: royalblue;
+  }
 `
-
+const button2 = {
+    width: '250px',
+    height: '50px',
+    background: '#6aa656',
+    color: 'white',
+    fontSize: '20px',
+    borderRadius: '10px/10px',
+    outline: 'none',
+}
 const img1 = {
     height: '50px',
 }
@@ -394,7 +447,7 @@ const form1 = {
     width: '180px',
 }
 const headerbox = {
-    width: '200px',
+    width: '150px',
     height: '4px',
     background: 'white',
     padding: '10px',
@@ -426,7 +479,6 @@ const img2 = {
     width: '550px',
 }
 const submit1 = {
-    marginTop: '5px',
     background: '#4267b2',
     color: 'white',
     height: '25px',
@@ -470,8 +522,21 @@ const selectmonth = {
     fontSize: '15px',
 }
 
-
+const footer = {
+    width: '930px',
+    top: '15px',
+    left: '200px',
+    color: '#bcbdc4',
+    height: '60px',
+}
 const Wrapper = styled.div`
-
+.bodyfooter{
+    position:absolute;
+    left:0;
+    top:920px;
+    width:100%;
+    height:80px;
+    background:white;
+    }
 `
 export default Login;

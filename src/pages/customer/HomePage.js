@@ -5,6 +5,7 @@ import HomeRight from './HomeRight';
 import styled from 'styled-components';
 import { Component } from 'react'
 import { Redirect } from 'react-router-dom'
+import News from './News';
 export default class HomePage extends Component {
     constructor(props) {
         super(props)
@@ -47,8 +48,6 @@ function Main() {
     return (
         <div>
             <Wrapper>
-                <br />
-                <br />
                 <div className="status">
                     <div className="wrapper2">
                         <div style={img3} >
@@ -78,11 +77,12 @@ function Main() {
                             </tr>
                         </table>
                     </div>
-
                     <div style={img30} >
                         <Stream />
                     </div>
                 </div>
+
+                <News Icon='wall.jpg' Image='wall.jpg' />
             </Wrapper>
         </div>
     );
@@ -168,7 +168,6 @@ const Wrapper = styled.div`
     flex-basis: 22%;
     background-color: #18191a;
 }
-
 .status {
     background-color: #242526;
 	width: 500px;
@@ -192,7 +191,6 @@ const Wrapper = styled.div`
   	width: 150px;
   	border-radius: 10px/10px;
   }
-
 .btnstatus1:hover {
     background-color: #303031;
     color: white;
@@ -222,7 +220,16 @@ const Wrapper = styled.div`
 	margin-left: 95px;
 	border-radius: 15px/15px;
 }
-
+.room1{
+    background-color: #242526;
+width: 500px;
+height: 550px;
+margin-top: 0px;
+margin-bottom: 10px;
+margin-left: 95px;
+border-radius: 15px/15px;
+color:white;
+}
 /*ahuhu*/
 th, td {
     text-align: left;
@@ -271,4 +278,21 @@ const profpic20 = {
     marginLeft: '10px',
     height: '40px',
     borderRadius: '20px/20px',
+}
+const IconNews = {
+    width: '35px',
+    height: '35px',
+    borderRadius: '25px',
+}
+const textNews = {
+    fontSize: '15px',
+    width: '400px',
+    height: '20px',
+    background: '#3a3b3c',
+    padding: '5px',
+    outline: 'none',
+    outlineWidth: '0',
+    borderRadius: '20px/20px',
+    backgroundPosition: '5px',
+    backgroundRepeat: 'no-repeat',
 }

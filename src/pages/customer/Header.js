@@ -5,7 +5,6 @@ import { ReactComponent as MessengerIcon } from './icons/messenger.svg';
 import { ReactComponent as CaretIcon } from './icons/caret.svg';
 import { ReactComponent as PlusIcon } from './icons/plus.svg';
 import { Navbar, NavItem, DropdownMenu } from './Dropdown.js';
-import { memo } from "react";
 function HeaderHome() {
   return (
     <Wrapper>
@@ -17,7 +16,7 @@ function HeaderHome() {
           <div className="container-1-box">
             <input placeholder="         Tìm kiếm trên Facebook" type="text" className="searchbox1" />
           </div>
-
+    
           <ButtonHeader />
           <div className="container-1-box">
             <table>
@@ -65,6 +64,7 @@ body {
   font-family: roboto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
@@ -79,6 +79,7 @@ code {
   --border: 1px solid #474a4d;
   --border-radius: 8px;
   --speed: 500ms;
+  
 }
 
 ul {
@@ -154,6 +155,7 @@ a {
 
   .menu {
     width: 100%;
+    color: white;
   }
   
   .menu-item {
