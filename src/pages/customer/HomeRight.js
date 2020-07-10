@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import { ButtonHome } from './HomeLeft';
+import ButtonHome from "./ButtonHome";
 function HomeRight(props) {
     return (
         <>

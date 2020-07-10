@@ -1,6 +1,8 @@
 
-import styled, { withTheme } from 'styled-components';
-import React, { useState, Component } from 'react';
+import styled from 'styled-components';
+import React, { Component } from 'react';
+import ButtonHome, { profilearea5, profpic1 } from "./ButtonHome";
+
 class HomeLeft extends Component {
     constructor() {
         super()
@@ -24,20 +26,28 @@ class HomeLeft extends Component {
             <div>
                 <Wrapper>
                     <div class="container-2-box">
-                        <ButtonHome icon={'cat.png'} nameButton='Đức' />
-                        <ButtonHome icon={'itemfriend.png'} nameButton='Bạn bè' />
-                        <ButtonHome icon={'itemmess.png'} nameButton='Messager' />
-                        <ButtonHome icon={'itemcalendar.png'} nameButton='Sự kiện' />
-                        <ButtonHome icon={'itemmarket.png'} nameButton='Marketplace' />
+                        <ButtonHomes posts={
+                            [
+                                { icon: 'cat.png', nameButton: 'Đức' },
+                                { icon: 'itemfriend.png', nameButton: 'Bạn bè' },
+                                { icon: 'itemmess.png', nameButton: 'Messager' },
+                                { icon: 'itemcalendar.png', nameButton: 'Sự kiện' },
+                                { icon: 'itemmarket.png', nameButton: 'Marketplace' },
+                            ]
+                        } />
                         {
                             this.state.showMe ?
                                 <>
-                                    <ButtonHome icon={'video.png'} nameButton='Video' />
-                                    <ButtonHome icon={'chiendichgayquy.png'} nameButton='Chiến dịch gây quỹ' />
-                                    <ButtonHome icon={'daluu.png'} nameButton='Đã lưu' />
-                                    <ButtonHome icon={'flag.png'} nameButton='Trang' />
-                                    <ButtonHome icon={'live.png'} nameButton='Video trực tiếp' />
-                                    <ButtonHome icon={'messengernhi.png'} nameButton='Messenger nhí' />
+                                    <ButtonHomes posts={
+                                        [
+                                            { icon: 'video.png', nameButton: 'Video' },
+                                            { icon: 'chiendichgayquy.png', nameButton: 'Chiến dịch gây quỹ' },
+                                            { icon: 'daluu.png', nameButton: 'Đã lưu' },
+                                            { icon: 'flag.png', nameButton: 'Trang' },
+                                            { icon: 'live.png', nameButton: 'Video trực tiếp' },
+                                            { icon: 'messengernhi.png', nameButton: 'Messenger nhí' },
+                                        ]
+                                    } />
                                 </>
                                 : null
                         }
@@ -59,18 +69,26 @@ class HomeLeft extends Component {
                             <div style={profilearea}>
                                 Lối tắt
                         </div>
-                            <ButtonHome icon={'fun.png'} nameButton='ReactJS - Việt Nam' />
-                            <ButtonHome icon={'fun.png'} nameButton='JsLand (Cộng đồng Javascript lớn nhất Việt Nam)' />
-                            <ButtonHome icon={'fun.png'} nameButton='Kỹ Thuật Phần Mềm 3-K12' />
-                            <ButtonHome icon={'fun.png'} nameButton='Cộng Đồng Digital Marketing ☑️' />
-                            <ButtonHome icon={'fun.png'} nameButton='Đảo mèo' />
+                            <ButtonHomes posts={
+                                [
+                                    { icon: 'fun.png', nameButton: 'Đảo mèo' },
+                                    { icon: 'fun.png', nameButton: 'ReactJS - Việt Nam' },
+                                    { icon: 'fun.png', nameButton: 'JsLand (Cộng đồng Javascript lớn nhất Việt Nam)' },
+                                    { icon: 'fun.png', nameButton: 'Trang tin tức' },
+                                    { icon: 'fun.png', nameButton: 'Kỹ Thuật Phần Mềm 3-K12' },
+                                ]
+                            } />
                             {
                                 this.state.showShortcuts ?
                                     <>
-                                        <ButtonHome icon={'video.png'} nameButton='Tuyển dụng nhân sự IT' />
-                                        <ButtonHome icon={'chiendichgayquy.png'} nameButton='Hóng biến 24h' />
-                                        <ButtonHome icon={'daluu.png'} nameButton='Thời sự 247' />
-                                        <ButtonHome icon={'flag.png'} nameButton='Bộ tộc MixiGaming' />
+                                        <ButtonHomes posts={
+                                            [
+                                                { icon: 'video.png', nameButton: 'Tuyển dụng nhân sự IT' },
+                                                { icon: 'chiendichgayquy.png', nameButton: 'Hóng biến 24h' },
+                                                { icon: 'flag.png', nameButton: 'Thời sự 247' },
+                                                { icon: 'fun.png', nameButton: 'Bộ tộc MixiGaming' },
+                                            ]
+                                        } />
                                     </>
                                     : null
                             }
@@ -94,20 +112,15 @@ class HomeLeft extends Component {
     }
 }
 
-export function ButtonHome(props) {
+function ButtonHomes(props) {
+    const posts = props.posts;
+    const content = posts.map((post) =>
+        <ButtonHome icon={post.icon} nameButton={post.nameButton} />
+    );
     return (
-        <div style={profilearea5} className="btn">
-            <table>
-                <tr>
-                    <td>
-                        <img src={props.icon} style={profpic1} />
-                    </td>
-                    <td>
-                        <a href="#">  {props.nameButton}</a>
-                    </td>
-                </tr>
-            </table>
-        </div>
+        <>
+            {content}
+        </>
     );
 }
 
@@ -131,21 +144,10 @@ const Wrapper = styled.div`
         justify-content: center;
         transition: filter 300ms;
       }
-
 `
-const profilearea5 = {
-    alignItems: 'center',
-    fontSize: '15px',
-    fontWeight: '550',
-    fontFamily: 'inherit',
-}
 const profilearea = {
     marginTop: '10px',
     fontSize: '15px',
     color: 'white',
-}
-const profpic1 = {
-    height: '30px',
-    borderRadius: '10px/10px',
 }
 export default HomeLeft;

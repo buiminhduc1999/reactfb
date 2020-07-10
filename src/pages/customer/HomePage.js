@@ -5,7 +5,6 @@ import HomeRight from './HomeRight';
 import styled from 'styled-components';
 import { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-
 export default class HomePage extends Component {
     constructor(props) {
         super(props)
@@ -61,9 +60,7 @@ function Main() {
                     </div>
                     <hr />
                     <div className="wrapper">
-                        <ButtonPage icon={'stream.png'} nameButton='Video trực tiếp' classname='btnstatus' />
-                        <ButtonPage icon={'image.png'} nameButton='Ảnh/Video' classname='btnstatus' />
-                        <ButtonPage icon={'icon.png'} nameButton='Cảm xúc/Hoạt động' classname='btnstatus1' />
+                        <Blog />
                     </div>
                 </div>
                 <div className="room">
@@ -83,23 +80,53 @@ function Main() {
                     </div>
 
                     <div style={img30} >
-                        <img src="cat.png" style={profpic20} />
-                        <img src="cat.png" style={profpic20} />
-                        <img src="cat.png" style={profpic20} />
-                        <img src="cat.png" style={profpic20} />
-                        <img src="cat.png" style={profpic20} />
-                        <img src="cat.png" style={profpic20} />
-                        <img src="cat.png" style={profpic20} />
-                        <img src="cat.png" style={profpic20} />
+                        <Stream />
                     </div>
                 </div>
             </Wrapper>
         </div>
     );
 }
+function Stream(props) {
+    const posts = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const content = posts.map((post) =>
+        <img src="cat.png" style={profpic20} />
+    );
+    return (
+        <>
+            {content}
+        </>
+    );
+}
+
+function Blog(props) {
+    const posts = [
+        { icon: 'stream.png', nameButton: 'Video trực tiếp', classname: 'btnstatus' },
+        { icon: 'image.png', nameButton: 'Ảnh/Video', classname: 'btnstatus' },
+        { icon: 'icon.png', nameButton: 'Cảm xúc/Hoạt động', classname: 'btnstatus1' }
+    ];
+    const content = posts.map((post) =>
+        <div style={profilearea6} className={post.classname}>
+            <table>
+                <tr>
+                    <td>
+                        <img src={post.icon} />
+                    </td>
+                    <td>
+                        <a href={post.nameButton}>Video trực tiếp</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    );
+    return (
+        <>
+            {content}
+        </>
+    );
+}
 
 export function ButtonPage(props) {
-
     return (
         <div style={profilearea6} className={props.classname}>
             <table>
@@ -119,7 +146,6 @@ export function ButtonPage(props) {
 
 
 const Wrapper = styled.div`
-
 @media (min-width: 1000px) {
     .container-2 {
         display: flex;
